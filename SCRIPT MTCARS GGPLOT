@@ -1,0 +1,49 @@
+
+# install ggplot2
+
+mtcars = mtcars
+
+
+View(mtcars)
+
+# One variable >> geom_histogram
+ggplot(mtcars, aes(mpg))+
+  geom_histogram(binwidth = 10, color = "red", fill="green")+
+  xlab("mpg")+ ylab("nombre")+ xlim(0,40)+ylim(0,20)+ggtitle("mpg distribution")
+
+# One variable >> geom_bar
+
+ggplot(mtcars, aes(mpg))+geom_bar(binwidth = 10) 
+
+# One variable >> geom_density
+ggplot(mtcars, aes(mpg))+geom_(binwidth = 10) 
+
+
+# scatter plot ( two dimension )
+ggplot(mtcars, aes(wt,qsec))+ geom_point(size=5,color="blue")
+
+# scatter plot ( tree dimension )
+ggplot(mtcars, aes(wt,mpg,color=as.factor(cyl)))+ geom_point(size=5)
+
+# boxplot >> grouper par des ranges 
+
+ggplot(mtcars,aes(as.factor(cyl),mpg, fill= as.factor(cyl)))+ geom_boxplot()
+
+
+# violin >> grouper par des ranges 
+
+ggplot(mtcars,aes(as.factor(cyl),mpg, fill= as.factor(cyl)))+ geom_violin()
+
+
+# install plotly
+diamonds = diamonds
+ df<- diamonds
+
+ d <- df[sample(nrow(diamonds), 1000), ]
+ 
+ p <- ggplot(d, aes(x = carat, y = price))+
+   geom_point(aes(paste("Clarity:", clarity)), size = 4) +
+   geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+ 
+View(p)
+
